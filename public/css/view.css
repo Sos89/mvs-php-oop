@@ -1,0 +1,14 @@
+.card{
+    width: 400px;
+}
+
+.view{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.view_img_div{
+    width: 450px;
+    height: 300px
+}

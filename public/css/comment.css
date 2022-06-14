@@ -1,0 +1,14 @@
+.comment_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    width: 200px
+}
+
+.comment_img{
+    width: 150px;
+    height: 100px
+}
