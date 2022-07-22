@@ -11,12 +11,10 @@ use app\models\User;
 
 class AdminController extends Controller
 {
-
     public function index()
     {
         $this->registerMiddleware(new AuthMiddleware(['admin']));
         $product = new Product();
-        $loginForm = new Login();
         $prods = $product->getProducts();
             return  $this->render('admin', [
                 'prods' => $prods

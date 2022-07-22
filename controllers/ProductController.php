@@ -4,38 +4,31 @@ namespace app\controllers;
 
 use app\core\Application;
 use app\core\Controller;
-use app\core\db\DbModel;
-use app\core\middlewares\AuthMiddleware;
 use app\core\Request;
 use app\core\Response;
-use app\core\Router;
-use app\models\Login;
 use app\models\Product;
 
 
 class ProductController extends Controller
 {
-
-
-
     public function insert(Request $request, Response $response)
     {
-        $admin = new Product();
+        $product = new Product();
         if ($request->isPost()){
-            $admin->loadData($request->getBody());
-            if ($admin->create()){
+            $product->loadData($request->getBody());
+            if ($product->create()){
                 Application::$app->session->setFlash('success', 'Created success');
                 $response->redirect('/admin');
             }
         }
         return $this->render('admin', [
-            'model' => $admin
+            'model' => $product
         ]);
     }
     public function edit(){
         $id = $_GET['id'];
-        $admin = new Product();
-        $k =  $admin->findProduct($id);
+        $product = new Product();
+        $k =  $product->findProduct($id);
         return  $this->render('edit', [
             'model' => $k
         ]);
@@ -58,7 +51,7 @@ class ProductController extends Controller
         $id = $_GET['id'];
         $product = new Product();
         $product->delete($id);
-        $products= $product->getProducts();
+        $products = $product->getProducts();
         return $this->render('/admin', [
             'prods' => $products
         ]);

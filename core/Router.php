@@ -1,7 +1,6 @@
 <?php
 namespace app\core;
 
-use app\core\exception\ForBiddenException;
 use app\core\exception\NotFoundException;
 
 class Router
